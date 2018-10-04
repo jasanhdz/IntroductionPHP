@@ -1,0 +1,165 @@
+body {
+  margin: 0;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+.header {
+  color: white;
+  height: 90px;
+  background-color: #1d252c;
+  position: fixed;
+  width: 1500px;
+
+}
+
+.hero {
+  display: flex;
+  justify-content: center;
+  width: auto;
+  /* border: 5px solid blue; */
+  height: 90px;
+
+}
+.li {
+  justify-content: space-between;
+}
+.colapse {
+  height: 90px;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 150px 150px 80px 100px 100px;
+}
+.item {
+  /* background-color: lightblue;
+  border: 1px solid red; */
+  justify-content: center;
+  display: flex;
+  padding: 10px;
+}
+.item:nth-of-type(1) {
+  grid-column-end: span 5;
+  grid-row-end: span 2;
+  background-color: white;
+}
+.item:nth-of-type(2) {
+  grid-column-end: span 5;
+  grid-row-end: span 1;
+}
+.item:nth-of-type(3) {
+  grid-column-end: span 5;
+  grid-row-end: span 2;
+}
+.item:nth-of-type(4) {
+  grid-column-end: span 5;
+  grid-row-end: span 1;
+}
+
+.wrapper {
+  display: flex;
+  width: 1100px;
+  /* border: 1px solid red; */
+  padding-bottom: 10px; 
+  
+}
+
+.avatar {
+  /* background-color: blueviolet;
+  border: 1px solid red; */
+  padding:10px 5px;
+  margin-right: 20px;
+}
+.info {
+  /* background-color: brown;
+  border: 1px solid red; */
+  padding-top: 30px;
+}
+
+.img {
+  width: 250px;
+  height: 250px;
+  border-radius: 5px;
+}
+.line {
+  /* border: none; */
+  border-bottom: 2px solid gray;  
+}
+.sub {
+  font-size: 28px;
+}
+
+p {
+  font-size: 18px;
+}
+
+.container-work {
+  display: flex;
+  width: auto;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: nowrap;
+}
+
+.wrapper-work {
+  display: inherit;
+  width: 1100px;
+  /* border: 1px solid black; */
+  padding-bottom: 10px;
+  /* height: 500px; */
+  justify-content: space-between;
+}
+
+.work {
+  max-width: 700px;
+  /* border: 1px solid red; */
+  padding: 20px;
+  
+}
+
+.tecnologys {
+  padding: 20px;
+  /* border: 1px solid blue; */
+}
+
+.border-bottom-gray {
+  border-bottom: 1px solid gray;
+  font-size: 25px;
+}
+
+.row {
+ display: inline-block; 
+ padding: 30px;
+}
+
+.col {
+  padding: 0 10px;
+}
+
+li {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+span {
+  font-size: 19px;
+  background-color: lightcoral;
+  border-radius: 4px;
+}
+
+.mli {
+  display: inline-block;
+  padding: 10px;
+  margin-right: 20px;
+  padding-right: 15px;
+}
+
+ul {
+  align-items: center;
+}
+
+nav {
+  align-self: flex-end;
+}
