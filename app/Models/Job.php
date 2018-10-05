@@ -8,4 +8,8 @@ class Job extends BaseElement {
     $this->description = $description;
     $this->months = $months;
   }
+
+  public function getDescription() {
+    return '<strong style="color:blue;">Implementando Interface:</strong> ' . $this->description;
+  }
 }

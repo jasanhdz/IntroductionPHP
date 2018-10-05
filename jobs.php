@@ -2,14 +2,13 @@
 
 require 'app/Models/Job.php';
 require 'app/Models/Project.php';
-
-
+require_once 'app/Models/Printable.php';
 
 # Creando Objetos de tipo Job Con Constructor.
 $job1 = new Job('PHP Developer', 'this is a amazing', 10);
 $job2 = new Job('JavaScript Developer', 'This is awesoome!!', 12);
 $job3 = new Job('', 'is a lenguages interesting!!', 18);
-
+# Arreglo de Jobs
 $jobs = [
   $job1,
   $job2,
@@ -31,30 +30,14 @@ $projects = [
   $project3
 ];
 
-# Creando Funciones de Jobs
-function getDuration($months) {
-  $years = floor($months / 12);
-  $meses =  $months % 12;
-
-  if($years > 0) {
-    if ($years == 1) {
-      return "<strong>Total de Job:</strong> $years Year, $meses Months";
-    } else {
-      return "<strong>Total de Job:</strong> $years Years, $meses Months";
-    }
-  } else {
-    return "<strong>Total de Job:</strong> $meses Months";
-  }
-}
-
-function printJobs($job) {
+function printJobs(Printable $job) {
   if($job->visible == false) {
     return;
   }
   echo '<li class="work-position">';
   echo '<h3>'. $job->getTitle() .'</h3>';
-  echo '<p>'. $job->description .'</p>';
-  echo '<p>'. getDuration($job->months) .'</p>';
+  echo '<p>'. $job->getDescription() .'</p>';
+  echo '<p>'. $job->getDurationAsString() .'</p>';
   echo '<strong>Achievements:</strong>';
   echo '<ul>';
   echo  '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
@@ -75,8 +58,8 @@ function printProject($project) {
   echo '<img id="profile-picture" src="https://ui-avatars.com/api/?name=Jasan+Hdz&size=255" alt="">';
   echo '</div>';
   echo '<div class="col">';
-  echo '<p>'. getDuration($project->months) .'</p>';
-  echo '<p>'. $project->description .'</p>';
+  echo '<p>'. $project->getDurationAsString() .'</p>';
+  echo '<p>'. $project->getDescription() .'</p>';
   echo '<h4>Technologies used:</h4>';
   echo '<span>PHP</span>';
   echo '<span>HTML</span>';
