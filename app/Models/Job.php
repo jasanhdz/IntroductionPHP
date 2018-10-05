@@ -1,14 +1,9 @@
 <?php
 namespace App\Models;
-require_once 'BaseElement.php';
+use Illuminate\Database\Eloquent\Model;
 
-class Job extends BaseElement {
-  public function __construct($title, $description, $months) {
-    $this->setTitle($title);
-    $this->description = $description;
-    $this->months = $months;
-  }
-
+class Job extends Model {
+  protected $table = 'jobs';
   public function getDescription() {
     return '<strong style="color:blue;">Implementando Interface:</strong> ' . $this->description;
   }

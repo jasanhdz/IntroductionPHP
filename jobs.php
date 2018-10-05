@@ -2,10 +2,10 @@
 
 use App\Models\{Job, Project, Printable};
 require 'vendor/autoload.php';
-# Creando Objetos de tipo Job Con Constructor.
-$job1 = new Job('PHP Developer', 'this is a amazing', 10);
-$job2 = new Job('JavaScript Developer', 'This is awesoome!!', 12);
-$job3 = new Job('', 'is a lenguages interesting!!', 18);
+// # Creando Objetos de tipo Job Con Constructor.
+// $job1 = new Job('PHP Developer', 'this is a amazing', 10);
+// $job2 = new Job('JavaScript Developer', 'This is awesoome!!', 12);
+// $job3 = new Job('', 'is a lenguages interesting!!', 18);
 # Arreglo de Jobs
 $jobs = [
   $job1,
