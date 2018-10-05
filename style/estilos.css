@@ -3,7 +3,7 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
 }
 .header {
-  color: white;
+  color: rgb(148, 168, 145);
   height: 90px;
   background-color: #1d252c;
   position: fixed;
@@ -154,6 +154,8 @@ span {
   padding: 10px;
   margin-right: 20px;
   padding-right: 15px;
+  cursor: pointer;
+  font-size: 22px;
 }
 
 ul {
@@ -163,3 +165,8 @@ ul {
 nav {
   align-self: flex-end;
 }
+
+.mli:hover {
+  color: white;
+}
+
