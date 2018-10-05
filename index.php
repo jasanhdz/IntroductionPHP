@@ -98,45 +98,11 @@
     </div>
     <div class="container-work">
       <div class="wrapper-work">
-        <div class="row">
-          <div class="col-3">
-              <h3 class="sub">Project X</h3>
-              <img id="profile-picture" src="https://ui-avatars.com/api/?name=John+Doe&size=255" alt="">
-          </div>
-          <div class="col">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius earum corporis at accusamus quisquam hic quos vel? Tenetur, ullam veniam consequatur esse quod cum, quam cupiditate assumenda natus maiores aperiam.</p>
-              <h4>Technologies used:</h4>
-              <span class="badge badge-secondary">PHP</span>
-              <span class="badge badge-secondary">HTML</span>
-              <span class="badge badge-secondary">CSS</span>
-            </div>
-        </div>
-        <div class="row">
-          <div class="col-3">
-              <h3 class="sub">Project X</h3>
-              <img id="profile-picture" src="https://ui-avatars.com/api/?name=John+Doe&size=255" alt="">
-          </div>
-          <div class="col">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius earum corporis at accusamus quisquam hic quos vel? Tenetur, ullam veniam consequatur esse quod cum, quam cupiditate assumenda natus maiores aperiam.</p>
-              <h4>Technologies used:</h4>
-              <span class="badge badge-secondary">PHP</span>
-              <span class="badge badge-secondary">HTML</span>
-              <span class="badge badge-secondary">CSS</span>
-            </div>
-        </div>
-        <div class="row">
-          <div class="col-3">
-              <h3 class="sub">Project X</h3>
-              <img id="profile-picture" src="https://ui-avatars.com/api/?name=John+Doe&size=255" alt="">
-          </div>
-          <div class="col">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius earum corporis at accusamus quisquam hic quos vel? Tenetur, ullam veniam consequatur esse quod cum, quam cupiditate assumenda natus maiores aperiam.</p>
-              <h4>Technologies used:</h4>
-              <span class="badge badge-secondary">PHP</span>
-              <span class="badge badge-secondary">HTML</span>
-              <span class="badge badge-secondary">CSS</span>
-            </div>
-        </div>
+         <?php  
+              for($id = 0; $id < count($projects); $id++) {
+                printProject($projects[$id]);
+              }
+          ?>
       </div>
     </div>
 </body>
