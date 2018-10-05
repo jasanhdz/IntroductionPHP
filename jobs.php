@@ -4,6 +4,8 @@ require 'app/Models/Job.php';
 require 'app/Models/Project.php';
 require_once 'app/Models/Printable.php';
 
+use App\Models\{Job, Project, Printable};
+
 # Creando Objetos de tipo Job Con Constructor.
 $job1 = new Job('PHP Developer', 'this is a amazing', 10);
 $job2 = new Job('JavaScript Developer', 'This is awesoome!!', 12);
