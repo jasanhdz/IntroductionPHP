@@ -1,27 +1,6 @@
 <?php 
-require 'vendor/autoload.php';
-use Illuminate\Database\Capsule\Manager as Capsule;
+
 use App\Models\{Job, Project};
-
-$capsule = new Capsule;
-
-$capsule->addConnection([
-    'driver'    => 'mysql',
-    'host'      => 'localhost',
-    'database'  => 'cursophp',
-    'username'  => 'root',
-    'password'  => 'hasanazael',
-    'charset'   => 'utf8',
-    'collation' => 'utf8_unicode_ci',
-    'prefix'    => '',
-]);
-
-// Nos permite hacer todo como si estuviera en el contexto Global
-// Make this Capsule instance available globally via static methods... (optional)
-$capsule->setAsGlobal();
-// Nos va a servir para inicializar el ORM.
-// Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
-$capsule->bootEloquent();
 
 // Si $post No esta vacio vamos a guardar los datos y si esta vacío no hacemos nada.
 if(!empty($_POST)) {
@@ -53,6 +32,7 @@ if(!empty($_POST)) {
   <title>Registro</title>
   <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Source+Sans+Pro" rel="stylesheet">
   <link rel="stylesheet" href="style/addjobstyle.css">
+  <link rel="stylesheet" href="../style/addjobstyle.css">
 </head>
 <body>
   <div class="box">

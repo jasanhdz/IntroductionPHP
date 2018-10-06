@@ -1,29 +1,5 @@
 <?php 
-
-  require 'vendor/autoload.php';
-  use Illuminate\Database\Capsule\Manager as Capsule;
-  use App\Models\Job;
-  
-  $capsule = new Capsule;
-
-  $capsule->addConnection([
-      'driver'    => 'mysql',
-      'host'      => 'localhost',
-      'database'  => 'cursophp',
-      'username'  => 'root',
-      'password'  => 'hasanazael',
-      'charset'   => 'utf8',
-      'collation' => 'utf8_unicode_ci',
-      'prefix'    => '',
-  ]);
-  // Nos permite hacer todo como si estuviera en el contexto Global
-  // Make this Capsule instance available globally via static methods... (optional)
-  $capsule->setAsGlobal();
-  // Nos va a servir para inicializar el ORM.
-  // Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
-  $capsule->bootEloquent();
-
-  require_once 'jobs.php';
+require_once 'jobs.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,6 +9,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Proyect</title>
   <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Source+Sans+Pro" rel="stylesheet">
+  <link rel="stylesheet" href="../style/style.css">
   <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
@@ -59,6 +36,7 @@
     <div class="item">
       <div class="wrapper">
         <div class="avatar">
+            <img class="img" src="../images/jasanprofile.jpg" alt="">
             <img class="img" src="images/jasanprofile.jpg" alt="">
         </div>
         <div class="info">
