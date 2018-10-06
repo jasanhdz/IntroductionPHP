@@ -1,7 +1,7 @@
 <?php 
 require 'vendor/autoload.php';
 use Illuminate\Database\Capsule\Manager as Capsule;
-use App\Models\Job;
+use App\Models\{Job, Project};
 
 $capsule = new Capsule;
 
@@ -25,10 +25,23 @@ $capsule->bootEloquent();
 
 // Si $post No esta vacio vamos a guardar los datos y si esta vacío no hacemos nada.
 if(!empty($_POST)) {
-  $job = new Job();
-  $job->title = $_POST['title'];
-  $job->description = $_POST['description'];
-  $job->save();
+  if($_POST['title'] == '' && $_POST['description'] == '') {
+
+  } else {
+    $job = new Job();
+    $job->title = $_POST['title'];
+    $job->description = $_POST['description'];
+    $job->save();
+  }
+  if($_POST['titleProyect'] == '' && $_POST['descriptionProyect'] == '') {
+
+  } else {
+    $project = new Project();
+    $project->title = $_POST['titleProyect'];
+    $project->description = $_POST['descriptionProyect'];
+    $project->visible = true;
+    $project->save();
+  }
 }
 ?>
 <!DOCTYPE html>

@@ -1,10 +1,11 @@
 body {
   margin: 0;
   font-family: 'Source Sans Pro', sans-serif;
+
 }
 .header {
   color: rgb(148, 168, 145);
-  height: 90px;
+  height: 60px;
   background-color: #1d252c;
   position: fixed;
   width: 1500px;
@@ -16,14 +17,14 @@ body {
   justify-content: center;
   width: auto;
   /* border: 5px solid blue; */
-  height: 90px;
+  height: 60px;
 
 }
 .li {
   justify-content: space-between;
 }
 .colapse {
-  height: 90px;
+  height: 60px;
 }
 .container {
   display: grid;
@@ -86,6 +87,7 @@ body {
 }
 .sub {
   font-size: 28px;
+  margin: 10px;
 }
 
 p {
@@ -129,10 +131,16 @@ p {
 .row {
  display: inline-block; 
  padding: 30px;
+ max-height: 570px;
+ max-width: 270px;
 }
 
 .col {
   padding: 0 10px;
+}
+
+.col-3 {
+  max-width: 270px;
 }
 
 li {
@@ -163,10 +171,13 @@ ul {
 }
 
 nav {
-  align-self: flex-end;
+  align-self: center;
 }
 
 .mli:hover {
   color: white;
 }
 
+.dis {
+  flex-wrap: wrap;
+}
