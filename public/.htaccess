@@ -1,0 +1,17 @@
+# RewriteEngine para inicializarlo 
+	RewriteEngine On 
+# RewriteCond Significa que vamos a poner una condición.
+# RewriteCond %{REQUEST_FILENAME} !-d Si el archivo que estamos pidiendo,
+# no es un Directorio entonces sigamos probando, Si si es un directorio entonces
+# ya no va a Entrar, esto es para que todos los recursos No se redireccionen.
+	RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteCond %{REQUEST_FILENAME} !-f Si no existe un archivo.
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+# Si no es un Directorio y no es un Archivo entonces vete a la Regla que está abajo. 
+# RewriteRule Es que vamos a hacer una Regla 
+	RewriteRule ^ index.php [QSA,L]
+#Todo lo que sea que venga lo vamos a mandar a Index.php
+# Le pasamos 2 modificadores que son: [QSA,L]
+# Lo que hace [QSA= QueryString Append]: que todo lo que le mandemos se agrege al QueryString  
+# Y la [L]: significa que esta es la ultima, si hacemos esto quiere decir que ya no queremos que redireccione más.```
