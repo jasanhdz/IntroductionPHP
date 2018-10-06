@@ -1,16 +1,10 @@
 <?php
-// Lo que hace ini_set es que va a inicializarnos variables de php.
-// Display errors, lo tenemos que encender con 1.
 ini_set('display_errors', 1);
 ini_set('display_starup_error', 1);
-// E_ALL: que significa Todos los errores.
-error_reporting(E_ALL);
-// En caso de que tengamos un error siempre va a salir a la pantalla.
-// Normalmente XAMPP viene con el sistema de errores activo, en alguna otra vez estaremos
-// Trabajando con servidores que no lo tengan activo y está es la forma en la que pueden habilitar eso.
 
-// Ojo: mostrar los errores en pantalla solo las utilizamos cuando estamos desarrollando.
-// cuando nosotros configuramos en vivo, ya No queremos que esos errores salgan al usuario.
+error_reporting(E_ALL);
+
+use Aura\Router\RouterContainer;
 
 require '../vendor/autoload.php';
 use Illuminate\Database\Capsule\Manager as Capsule;
@@ -42,7 +36,23 @@ $request = Zend\Diactoros\ServerRequestFactory::fromGlobals(
   $_FILES
 );
 
-var_dump($request->getUri()->getPath());
+$routerContainer = new RouterContainer();
+
+$map = $routerContainer->getMap();
+$map->get('index', '/introductionPHP/', '../index.php');
+$map->get('addJobs', '/introductionPHP/jobs/add', '../addJob.php');
+
+$matcher = $routerContainer->getMatcher();
+$route = $matcher->match($request);
+if(!$route) {
+  echo 'No route';
+} else {
+  // si encontro una ruta entonces requerimos la ruta del Handler
+  require $route->handler;
+}
+
+// Si si encontraste esa ruta quiero que me digas cual es el manejador de esa ruta.
+// var_dump($route->handler);
 
 // $route = $_GET['route'] ?? '/';
 

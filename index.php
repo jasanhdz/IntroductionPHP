@@ -11,6 +11,9 @@ require_once 'jobs.php';
   <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Source+Sans+Pro" rel="stylesheet">
   <link rel="stylesheet" href="../style/style.css">
   <link rel="stylesheet" href="style/style.css">
+  <style>
+    .hero,.item{justify-content:center}.colapse,.header,.hero{height:60px}body{margin:0;font-family:'Source Sans Pro',sans-serif}.header{color:#94a891;background-color:#1d252c;position:fixed;width:1500px}.hero{display:flex;width:auto}.li{justify-content:space-between}.container{display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:150px 150px 80px 100px 100px}.item{display:flex;padding:10px}.item:nth-of-type(1){grid-column-end:span 5;grid-row-end:span 2;background-color:#fff}.item:nth-of-type(2){grid-column-end:span 5;grid-row-end:span 1}.item:nth-of-type(3){grid-column-end:span 5;grid-row-end:span 2}.item:nth-of-type(4){grid-column-end:span 5;grid-row-end:span 1}.wrapper{display:flex;width:1100px;padding-bottom:10px}.avatar{padding:10px 5px;margin-right:20px}.info{padding-top:30px}.img{width:250px;height:250px;border-radius:5px}.line{border-bottom:2px solid gray}.sub{font-size:28px;margin:10px}p{font-size:18px}.container-work{display:flex;width:auto;justify-content:center;align-content:center;flex-wrap:nowrap}.wrapper-work{display:inherit;width:1100px;padding-bottom:10px;justify-content:space-between}.mli,.row{display:inline-block}.tecnologys,.work{padding:20px}.work{max-width:700px}.col-3,.row{max-width:270px}.border-bottom-gray{border-bottom:1px solid gray;font-size:25px}.row{padding:30px;max-height:570px}.col{padding:0 10px}li{font-size:18px}h4{font-size:20px}span{font-size:19px;background-color:#f08080;border-radius:4px}.mli{padding:10px 15px 10px 10px;margin-right:20px;cursor:pointer;font-size:22px}ul{align-items:center}nav{align-self:center}.mli:hover{color:#fff}.dis{flex-wrap:wrap}
+  </style>
 </head>
 <body>
   <header class="header">

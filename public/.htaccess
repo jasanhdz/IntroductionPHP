@@ -14,4 +14,4 @@
 #Todo lo que sea que venga lo vamos a mandar a Index.php
 # Le pasamos 2 modificadores que son: [QSA,L]
 # Lo que hace [QSA= QueryString Append]: que todo lo que le mandemos se agrege al QueryString  
-# Y la [L]: significa que esta es la ultima, si hacemos esto quiere decir que ya no queremos que redireccione más.```
+# Y la [L]: significa que esta es la ultima, si hacemos esto quiere decir que ya no queremos que redireccione más.
