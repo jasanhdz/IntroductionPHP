@@ -3,23 +3,25 @@ namespace App\Controllers;
 use App\Models\{Job, Project};
 
 class JobsController {
-  public function getAddJobAction() {
-    // Si $post No esta vacio vamos a guardar los datos y si esta vacío no hacemos nada.
-    if(!empty($_POST)) {
-      if($_POST['title'] == '' && $_POST['description'] == '') {
+  public function getAddJobAction($request) {
+    # Si $post esta vacio No guardamos nada, y si no esta vacío entonces lo guardamos.
+    // Si Request->getMethod == POST entonces sigue adelante.
+    if($request->getMethod() == 'POST') {
+      $postData = $request->getParsedBody();
+      if($postData['title'] == '' && $postData['description'] == '') {
 
       } else {
         $job = new Job();
-        $job->title = $_POST['title'];
-        $job->description = $_POST['description'];
+        $job->title = $postData['title'];
+        $job->description = $postData['description'];
         $job->save();
       }
-      if($_POST['titleProyect'] == '' && $_POST['descriptionProyect'] == '') {
+      if($postData['titleProyect'] == '' && $postData['descriptionProyect'] == '') {
 
       } else {
         $project = new Project();
-        $project->title = $_POST['titleProyect'];
-        $project->description = $_POST['descriptionProyect'];
+        $project->title = $postData['titleProyect'];
+        $project->description = $postData['descriptionProyect'];
         $project->visible = true;
         $project->save();
       }

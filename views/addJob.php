@@ -14,7 +14,7 @@
 </head>
 <body>
   <div class="box">
-  <form action="/introductionPHP/addJob.php" method="post" class="container">
+  <form action="/introductionPHP/jobs/add" method="post" class="container">
   <h2>Add Job</h2>
   <input type="text" name="title" placeholder="Title" />
   <input type="text" name="description" placeholder="Description" />

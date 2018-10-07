@@ -85,6 +85,10 @@ $map->get('addJobs', '/introductionPHP/jobs/add', [
   'controller' => 'App\Controllers\JobsController',
   'action' => 'getAddJobAction'
 ]);
+$map->post('saveJobs', '/introductionPHP/jobs/add', [
+  'controller' => 'App\Controllers\JobsController',
+  'action' => 'getAddJobAction'
+]);
 
 $matcher = $routerContainer->getMatcher();
 $route = $matcher->match($request);
@@ -102,7 +106,7 @@ if(!$route) {
   // El objeto controller es un objeto de Tipo IndexController.
   // Ahora mandamos a llamar a la action del objeto IndexController.
   // Debemos poner parentesis al actionName para que mande a llamar a la function
-  $controller->$actionName();
+  $controller->$actionName($request);
 
 
   // var_dump($route->handler);
