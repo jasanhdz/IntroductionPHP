@@ -39,7 +39,10 @@ $request = Zend\Diactoros\ServerRequestFactory::fromGlobals(
 $routerContainer = new RouterContainer();
 
 $map = $routerContainer->getMap();
-$map->get('index', '/introductionPHP/', '../index.php');
+$map->get('index', '/introductionPHP/', [
+  'controller' => 'App\Controllers\IndexController',
+  'action' => 'indexAction'
+]);
 $map->get('addJobs', '/introductionPHP/jobs/add', '../addJob.php');
 
 $matcher = $routerContainer->getMatcher();
@@ -47,8 +50,21 @@ $route = $matcher->match($request);
 if(!$route) {
   echo 'No route';
 } else {
-  // si encontro una ruta entonces requerimos la ruta del Handler
-  require $route->handler;
+  $handlerData = $route->handler;
+  $actionName = $handlerData['action'];
+  $controllerName = $handlerData['controller'];
+  // Creamos una nueva instancia del string handlerData de su posición controller que 
+  // tiene como valor la declaración de la clase IndexData, por lo tanto estamos creando
+  // una instancia directa de IndexController
+  // $controller = new $handlerData['controller'];
+  $controller = new $controllerName;
+  // El objeto controller es un objeto de Tipo IndexController.
+  // Ahora mandamos a llamar a la action del objeto IndexController.
+  // Debemos poner parentesis al actionName para que mande a llamar a la function
+  $controller->$actionName();
+
+
+  // var_dump($route->handler);
 }
 
 // Si si encontraste esa ruta quiero que me digas cual es el manejador de esa ruta.
