@@ -1,6 +1,3 @@
-<?php 
-require_once 'jobs.php';
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
