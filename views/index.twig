@@ -40,7 +40,7 @@
             <img class="img" src="images/jasanprofile.jpg" alt="">
         </div>
         <div class="info">
-          <h1>Jasan Hernández</h1>
+          <h1> {{ name }} </h1>
           <h2>PHP Developer</h2>
           <ul>
             <li>Mail: <a href="mailto:jasan814@mail.com" for="email">jasan814@mail.com</a> </li>
@@ -67,11 +67,18 @@
         <div class="work">
           <h3 class="border-bottom-gray" >Work Experience</h3>
           <ul>
-            <?php  
-              for($id = 0; $id < count($jobs); $id++) {
-                printJobs($jobs[$id]);
-              }
-            ?>
+          {% for job in jobs %}
+          <li class="work-position">
+              <h3>{{ job.title }}</h3>
+              <p> {{ job.description }} </p>
+              <p><strong> {{ job.getDurationAsString() }} </strong></p>
+              <strong>Achievements:</strong>
+              <ul>
+              <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
+              <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
+              </ul>
+          </li>
+          {% endfor %}
           </ul>
         </div>
         <div class="tecnologys">
@@ -100,11 +107,22 @@
     </div>
     <div class="container-work">
       <div class="wrapper-work dis">
-         <?php  
-              for($id = 0; $id < count($projects); $id++) {
-                printProject($projects[$id]);
-              }
-          ?>
+        {% for project in projects %}
+          <div class="row">
+          <div class="col-3">
+          <h3 class="sub"> {{ project.title }} </h3>
+          <img id="profile-picture" src="https://ui-avatars.com/api/?name=Jasan+Hdz&size=255" alt="">
+          </div>
+          <div class="col">
+          <p> {{ project.getDurationAsString() }} </p>
+          <p> <strong style="color:#00c1ff"> {{ project.description }} </strong></p>
+          <h4>Technologies used:</h4>
+          <span>PHP</span>
+          <span>HTML</span>
+          <span>CSS</span>
+          </div>
+          </div>
+        {% endfor %}
       </div>
     </div>
 </body>

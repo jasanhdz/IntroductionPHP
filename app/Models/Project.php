@@ -12,12 +12,12 @@ class Project extends Model {
 
     if($years > 0) {
       if ($years == 1) {
-        return "<strong>Total de Project:</strong> $years Year, $meses Months";
+        return "Total de Project: $years Year, $meses Months";
       } else {
-        return "<strong>Total de Project:</strong> $years Years, $meses Months";
+        return "Total de Project: $years Years, $meses Months";
       }
     } else {
-      return "<strong>Total de Project:</strong> $meses Months";
+      return "Total de Project: $meses Months";
     }
   }
 

@@ -14,12 +14,12 @@ class Job extends Model {
   
     if($years > 0) {
       if ($years == 1) {
-        return "<strong>Total de Job:</strong> $years Year, $meses Months";
+        return "Total de Job: $years Year, $meses Months";
       } else {
-        return "<strong>Total de Job:</strong> $years Years, $meses Months";
+        return "Total de Job: $years Years, $meses Months";
       }
     } else {
-      return "<strong>Total de Job:</strong> $meses Months";
+      return "Total de Job: $meses Months";
     }
   }
 }

@@ -106,8 +106,9 @@ if(!$route) {
   // El objeto controller es un objeto de Tipo IndexController.
   // Ahora mandamos a llamar a la action del objeto IndexController.
   // Debemos poner parentesis al actionName para que mande a llamar a la function
-  $controller->$actionName($request);
-
+  $response = $controller->$actionName($request);
+  
+  echo $response->getBody();
 
   // var_dump($route->handler);
 }
