@@ -2,7 +2,7 @@
 namespace App\Controllers;
 use App\Models\{Job, Project};
 
-class JobsController {
+class JobsController extends BaseController {
   public function getAddJobAction($request) {
     # Si $post esta vacio No guardamos nada, y si no esta vacío entonces lo guardamos.
     // Si Request->getMethod == POST entonces sigue adelante.
@@ -27,7 +27,7 @@ class JobsController {
       }
     }
 
-    require_once '../views/addJob.php';
+    echo $this->renderHTML('addJob.php');
 
   }
 }

@@ -7,6 +7,7 @@
   "require": {
     "illuminate/database": "^5.7",
     "zendframework/zend-diactoros": "^2.0",
-    "aura/router": "^3.1"
+    "aura/router": "^3.1",
+    "twig/twig": "^2.5"
   }
 }
