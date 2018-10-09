@@ -4,11 +4,12 @@ ini_set('display_starup_error', 1);
 
 error_reporting(E_ALL);
 
-use Aura\Router\RouterContainer;
-
 require '../vendor/autoload.php';
-use Illuminate\Database\Capsule\Manager as Capsule;
 
+session_start();
+
+use Illuminate\Database\Capsule\Manager as Capsule;
+use Aura\Router\RouterContainer;
 $capsule = new Capsule;
 
 $capsule->addConnection([
@@ -83,7 +84,8 @@ $map->get('index', '/introductionPHP/', [
 ]);
 $map->get('addJobs', '/introductionPHP/jobs/add', [
   'controller' => 'App\Controllers\JobsController',
-  'action' => 'getAddJobAction'
+  'action' => 'getAddJobAction',
+  'auth' => true
 ]);
 $map->post('saveJobs', '/introductionPHP/jobs/add', [
   'controller' => 'App\Controllers\JobsController',
@@ -91,7 +93,8 @@ $map->post('saveJobs', '/introductionPHP/jobs/add', [
 ]);
 $map->get('addUser', '/introductionPHP/users/add', [
   'controller' => 'App\Controllers\UsersController',
-  'action' => 'getUserAction'
+  'action' => 'getUserAction',
+  'auth' => true
 ]);
 $map->post('saveUser', '/introductionPHP/users/save', [
   'controller' => 'App\Controllers\UsersController',
@@ -105,6 +108,15 @@ $map->post('auth', '/introductionPHP/auth', [
   'controller' => 'App\Controllers\AuthController',
   'action' => 'postLogin'
 ]);
+$map->get('admin', '/introductionPHP/admin', [
+  'controller' => 'App\Controllers\AdminController',
+  'action' => 'getIndex',
+  'auth' => true
+]);
+$map->get('logout', '/introductionPHP/logout', [
+  'controller' => 'App\Controllers\AuthController',
+  'action' => 'getLogout'
+]);
 
 $matcher = $routerContainer->getMatcher();
 $route = $matcher->match($request);
@@ -112,16 +124,17 @@ if(!$route) {
   echo 'No route';
 } else {
   $handlerData = $route->handler;
-  $actionName = $handlerData['action'];
   $controllerName = $handlerData['controller'];
-  // Creamos una nueva instancia del string handlerData de su posición controller que 
-  // tiene como valor la declaración de la clase IndexData, por lo tanto estamos creando
-  // una instancia directa de IndexController
-  // $controller = new $handlerData['controller'];
+  $actionName = $handlerData['action'];
+
+  $needsAuth = $handlerData['auth'] ?? false;
+  $sessionUserId = $_SESSION['userId'] ?? null;
+  if($needsAuth && !$sessionUserId) {
+    echo "<p style='font-size:24px; padding:10px;'>I am sorry :( . You have to <a href='/introductionPHP/login'>log in</a> to access this page.</p>";
+    die;
+  }
+
   $controller = new $controllerName;
-  // El objeto controller es un objeto de Tipo IndexController.
-  // Ahora mandamos a llamar a la action del objeto IndexController.
-  // Debemos poner parentesis al actionName para que mande a llamar a la function
   $response = $controller->$actionName($request);
 
   foreach($response->getHeaders() as $name => $values) {

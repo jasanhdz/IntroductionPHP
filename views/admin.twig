@@ -1,0 +1,24 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+
+<title>Admin</title>
+  <style>
+    body{font-family:'Source Sans Pro',sans-serif}.fin{list-style:none;}.container{display:flex;max-width:1440px;padding-top:20px;justify-content:center}.content{display:inherit;flex-direction:column;width:auto;align-content:center;height:auto}h1{font-size:4em; margin-bottom: 4px;}li{padding-bottom:8px;font-size:24px}
+  </style>
+<body>
+  <div class="container">
+    <div class="content">
+      <h1>Dasbord</h1>
+      <ul>
+        <li><a href="users/add">Add User</a></li>
+        <li><a href="jobs/add">Add Jobs</a></li>
+      </ul><br><br><br><br><br><br><br>
+      <ul>
+        <li class="fin"><a href="logout" style="color:red;">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</body>
+
+{% endblock %}
