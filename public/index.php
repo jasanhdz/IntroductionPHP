@@ -93,9 +93,17 @@ $map->get('addUser', '/introductionPHP/users/add', [
   'controller' => 'App\Controllers\UsersController',
   'action' => 'getUserAction'
 ]);
-$map->post('addUsers', '/introductionPHP/users/add', [
+$map->post('saveUser', '/introductionPHP/users/save', [
   'controller' => 'App\Controllers\UsersController',
   'action' => 'getUserAction'
+]);
+$map->get('loginForm', '/introductionPHP/login', [
+  'controller' => 'App\Controllers\AuthController',
+  'action' => 'getLogin'
+]);
+$map->post('auth', '/introductionPHP/auth', [
+  'controller' => 'App\Controllers\AuthController',
+  'action' => 'postLogin'
 ]);
 
 $matcher = $routerContainer->getMatcher();
@@ -115,7 +123,13 @@ if(!$route) {
   // Ahora mandamos a llamar a la action del objeto IndexController.
   // Debemos poner parentesis al actionName para que mande a llamar a la function
   $response = $controller->$actionName($request);
-  
+
+  foreach($response->getHeaders() as $name => $values) {
+    foreach($values as $value) {
+      header(sprintf('%s: %s', $name, $value), false);
+    }
+  }
+  http_response_code($response->getStatusCode());
   echo $response->getBody();
 
   // var_dump($route->handler);
