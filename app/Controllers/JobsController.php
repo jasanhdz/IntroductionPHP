@@ -14,23 +14,31 @@ class JobsController extends BaseController {
                   ->key('description', v::stringType()->notEmpty());
         try {
           $jobValidator->assert($postData);
-          if($postData['title'] == '' && $postData['description'] == '') {
-
-          } else {
-            $job = new Job();
-            $job->title = $postData['title'];
-            $job->description = $postData['description'];
-            $job->save();
+          // Regresame en está variable Todos los archivos que se subieron.
+          $files = $request->getUploadedFiles(); 
+          // var_dump($files);
+          $logo = $files['logo'];
+          if($logo->getError() == UPLOAD_ERR_OK) {
+            $fileName = $logo->getClientFileName();
+            $logo->moveTo("uploads/$fileName");
           }
-          if($postData['titleProyect'] == '' && $postData['descriptionProyect'] == '') {
+          // if($postData['title'] == '' && $postData['description'] == '') {
 
-          } else {
-            $project = new Project();
-            $project->title = $postData['titleProyect'];
-            $project->description = $postData['descriptionProyect'];
-            $project->visible = true;
-            $project->save();
-          }
+          // } else {
+          //   $job = new Job();
+          //   $job->title = $postData['title'];
+          //   $job->description = $postData['description'];
+          //   $job->save();
+          // }
+          // if($postData['titleProyect'] == '' && $postData['descriptionProyect'] == '') {
+
+          // } else {
+          //   $project = new Project();
+          //   $project->title = $postData['titleProyect'];
+          //   $project->description = $postData['descriptionProyect'];
+          //   $project->visible = true;
+          //   $project->save();
+          // }
           $responseMessage = 'SAVE!!';
         } catch(\Exception $e) {
           $responseMessage = $e->getMessage();
