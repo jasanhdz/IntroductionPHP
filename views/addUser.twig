@@ -1,0 +1,26 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+
+  <title>Registro</title>
+  <style>
+  .box,.container{justify-content:center}.btn,input{font-size:20px;padding:10px;margin:15px}.box-message,.container{display:flex;align-content:center}.validation,h2{text-align:center}.box{display:flex;align-items:center;height:560px}.container{flex-direction:column;padding:10px;width:400px;border:1px solid gray;height:360px}.btn{color:#fff;width:150px;align-self:center;background:#ff7368;border-radius:7px;cursor:pointer;border-bottom:5px solid #ff3728}.box-message{padding-top:10px;justify-content:center;width:1440px}.validation{border-radius:8px;width:600px;height:80px;background-color:#add8e6}
+  </style>
+</head>
+<body>
+  <section class="box-message">
+  <div class="validation">
+   <p> {{ responseMessage }} </p>
+   </div>
+  </section>
+  <div class="box">
+  <form action="/introductionPHP/users/add" method="post" class="container" enctype="multipart/form-data">
+  <h2>Add User</h2>
+  <input type="email" name="email" id="" placeholder="Email" />
+  <input type="password" name="password" id=""  placeholder="Contraseña"/>
+  <button type="submit" class="btn">Save</button>  
+  </form>
+  </div>
+</body>
+
+{% endblock %}

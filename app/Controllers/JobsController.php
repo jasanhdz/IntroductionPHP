@@ -22,23 +22,23 @@ class JobsController extends BaseController {
             $fileName = $logo->getClientFileName();
             $logo->moveTo("uploads/$fileName");
           }
-          // if($postData['title'] == '' && $postData['description'] == '') {
+          if($postData['title'] == '' && $postData['description'] == '') {
 
-          // } else {
-          //   $job = new Job();
-          //   $job->title = $postData['title'];
-          //   $job->description = $postData['description'];
-          //   $job->save();
-          // }
-          // if($postData['titleProyect'] == '' && $postData['descriptionProyect'] == '') {
+          } else {
+            $job = new Job();
+            $job->title = $postData['title'];
+            $job->description = $postData['description'];
+            $job->save();
+          }
+          if($postData['titleProyect'] == '' && $postData['descriptionProyect'] == '') {
 
-          // } else {
-          //   $project = new Project();
-          //   $project->title = $postData['titleProyect'];
-          //   $project->description = $postData['descriptionProyect'];
-          //   $project->visible = true;
-          //   $project->save();
-          // }
+          } else {
+            $project = new Project();
+            $project->title = $postData['titleProyect'];
+            $project->description = $postData['descriptionProyect'];
+            $project->visible = true;
+            $project->save();
+          }
           $responseMessage = 'SAVE!!';
         } catch(\Exception $e) {
           $responseMessage = $e->getMessage();
