@@ -3,3 +3,4 @@ vendor/
 composer.phar
 ._composer.phar
 composer.lock
+.env

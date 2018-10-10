@@ -4,7 +4,7 @@
 
   <title>Login</title>
   <style>
-  body{font-family: 'Source Sans Pro', Sans-serif; background-color: #f5f5f5;}.box,.container{justify-content:center}.btn,input{font-size:20px;padding:10px;margin:15px;margin-bottom:0;}.box-message,.container{display:flex;align-content:center}.validation,h1{text-align:center}.box{display:flex;align-items:center;height:500px}.container{flex-direction:column;padding:10px;width:400px;height:360px}.btn{color:#fff;width:150px;align-self:center;background:#5f9df6;border-radius:7px;cursor:pointer;}.btn:hover{background-color:#5a697f;} .box-message{justify-content:center;padding-top:20px;}.validation{border-radius:8px;width:600px;height:auto;background-color:#add8e6}
+  body{font-family: 'Source Sans Pro', Sans-serif; background-color: #f5f5f5;}p{text-align:center;font-size:20px;color:gray;}.box,.container{justify-content:center}.btn,input{font-size:20px;padding:10px;margin:15px;margin-bottom:0;}.box-message,.container{display:flex;align-content:center}.validation,h1{text-align:center}.box{display:flex;align-items:center;height:500px}.container{flex-direction:column;padding:10px;width:400px;height:360px}.btn{color:#fff;width:150px;align-self:center;background:#5f9df6;border-radius:7px;cursor:pointer;}.btn:hover{background-color:#5a697f;} .box-message{justify-content:center;padding-top:20px;}.validation{border-radius:8px;width:600px;height:auto;background-color:#add8e6}
   </style>
 </head>
 <body>
@@ -16,6 +16,7 @@
   <div class="box">
   <form action="/introductionPHP/auth" method="post" class="container">
   <h1>Login</h1>
+  <p>mail: admin@example.com | pass: 123456</p>
   <input type="email" name="email" id="" placeholder="Email" />
   <input type="password" name="password" id=""  placeholder="Contraseña"/>
   <button type="submit" class="btn">Login</button>  
